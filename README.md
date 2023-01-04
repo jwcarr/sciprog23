@@ -2,27 +2,27 @@
 
 Welcome to the Scientific Programming course. My name is [Jon Carr](https://joncarr.net) and, until recently, I was a postdoc in Davide Crepaldi’s lab at SISSA. I will be your guide to programming over the following week – I look forward to meeting you all soon!
 
-This is a one-week intensive course, which will run daily from **Monday 9th to Friday 13th January 2023**. We will be working in **Room 004** from **14:00 to 17:00**, but I would also encourage you to work independently outside of this time as well. Although I will do a little bit of lecturing, the course will mostly be very interactive with lots of practical exercises and independent working. It is therefore important that everyone brings a laptop computer with them. Before attending the first class, please try to get your computer set up with the relevant software (see below).
+This is a one-week intensive course, which will run daily from **Monday 9th to Friday 13th January 2023**. We will be working in **Room 004** from **14:00 to 17:00**, but I would also encourage you to work independently outside of this time as well. Although I will do a little bit of lecturing, the course will mostly be very interactive with lots of practical exercises and independent working. It is therefore important that **everyone brings a laptop computer with them**. Before attending the first class, please try to get your computer set up with the relevant software (see below).
 
 
 ## General information
 
 People who have no formal training in computer science (me included) face two common problems. First, we typically learn programming by trial-and-error; someone gives you some code and then you randomly change things until it works – I’m sure you’ve all had this experience before! Although this may work when you’re starting out, it is not a good general solution. My first goal in this course is to make sure that everyone has a solid grasp of the core concepts in programming; things like variables, loops, and functions. A good understanding of these basics is essential for writing your own code with confidence.
 
-The second problem we often face when starting out is that we cannot see the entire landscape of options available to us, and, as a result, we can get stuck in narrow, suboptimal patterns. Therefore, my second goal is to give you broader, conceptual view of programming. Memorizing the syntax of a particular language is not so important in this course; rather, I want you to understand general concepts like abstraction and control structure, I want to give you a sense of all the options available to you, and I want to draw your attention to good practices, such as organizing, documenting, and testing your code.
+The second problem we often face when starting out is that we cannot see the entire landscape of options available to us, and, as a result, we can get stuck in narrow, suboptimal patterns. Therefore, my second goal is to give you a broader, conceptual view of programming, especially as it relates to typical scientific pipelines (data management, experimental design, computational modeling, etc.). Memorizing the syntax of a particular language is not the main goal of this course; rather, I want you to understand general concepts like abstraction and control structure, I want to highlight the wide array of tools available to you, and I want to draw your attention to good practices, such as organizing, documenting, and testing your code. Overall, I want to help you feel confident exploring programming for yourself.
 
-Nevertheless, I also want to make sure you learn the basics of at least one programming language and take away some practical skills directly relevant to your studies. In this course we’ll be using Python, which is very nice general-purpose programming language. The language is pretty friendly, which makes it relatively easy to get started and learn the basic concepts. However, even if you choose not to stick with the Python language in the future, I hope the concepts you learn will be broadly applicable to other languages too.
+In this course we’ll be using Python, which is very nice general-purpose programming language. The language is pretty friendly, which makes it relatively easy to get started and learn the basic concepts. However, even if you choose not to stick with the Python language in the future, the concepts you learn should be broadly applicable to other languages too.
 
 
 ## Who is this course for?
 
 ### Beginner programmers
 
-Beginners will probably get the most out of this course, but they may also struggle to keep up – there’s so much to learn and so little time! However, if you ever feel a bit overwhelmed, please do not worry – just follow the course at your own pace. It’s perfectly okay to revisit previous topics when you get confused. I would much prefer that you understand everything clearly than rush ahead to the end of the course without a solid understanding. Above all, remember that this is a judgement-free zone, and there are no stupid questions. If you are stuck on something, then probably other people are stuck on the same thing, so don’t hesitate to ask questions and talk to the people around you.
+Beginners will probably get the most out of this course, but they may also struggle to keep up – there’s so much to learn and so little time! However, if you ever feel a bit overwhelmed, please do not worry – just follow the course at your own pace. It’s perfectly okay to revisit previous topics when you get confused. I would much prefer that you understand things clearly than rush ahead to the end of the course without a solid understanding. Above all, remember that this is a judgement-free zone, and there are no stupid questions. If you are stuck on something, then probably other people are stuck on the same thing, so don’t hesitate to ask questions and talk to the people around you.
 
 ### Intermediate programmers
 
-Even if you already have some programming experience, you can still take part in this course. I hope you will find this to be a good opportunity to review some core concepts and perhaps pick up a few new tips and tricks along the way. You should still follow all the material step by step; even though the concepts may be familiar, you will likely find lots of new little details that you didn’t realize before. If you’re able to get through the material quite quickly, please feel free to ask me more general questions or for advice about your own projects. I certainly don’t know everything, but I’ll try my best!
+If you already have some programming experience, you can still take part in this course. I hope you will find it to be a good opportunity to review the core concepts and perhaps pick up a few new tips and tricks along the way. I would recommend that you follow all the material step by step; even though the concepts may be familiar, you will likely discover lots of little details that you didn’t notice before. If you’re able to get through the material quite quickly, please feel free to ask me more general questions or for advice about your own projects. I certainly don’t know everything, but I’ll try my best!
 
 ### Advanced programmers
 
@@ -33,7 +33,7 @@ If you’re an advanced programmer, then this is probably not the right course f
 
 Most of the course follows an interactive notebook format. Each day you download the “notebook” file and then you can work through it step by step, running the code snippets for yourself. While you work through the notebook, I will be available to help... just wave your hand to get my attention.
 
-With the exception of the optional bonus classes (shown in red below), you should *not* skip any of the classes; each notebook is designed to follow on from the previous ones and assumes knowledge from the prior material. Over the week, I will try to adapt the course depending on your collective needs and interests; however, here’s an overview of what I aim to cover in each class:
+With the exception of the optional bonus classes (shown in red below), you should *not* skip any of the classes; each notebook is designed to follow on from the previous ones and assumes knowledge from the prior material. Over the week, I may adapt the course a little depending on your collective needs and interests; however, here’s an overview of what I aim to cover in each class:
 
 <img src='images/schedule.png' />
 
@@ -51,13 +51,13 @@ Here we will cover some important – but slightly more boring – concepts: Rea
 
 ### 4. The Scientific Stack
 
-In this class, I will introduce common packages that are widely used in the scientific community: NumPy (for numerical computation), Pandas (for handing and manipulating datasets), and Matplotlib (for plotting).
+I will introduce common packages that are widely used in the scientific community: NumPy (for numerical computation), Pandas (for handing and manipulating datasets), and Scipy (which provides various scientific functions). We’ll also construct a simple simulation to answer a math problem.
 
 ### 5. Visualization
 
 I this class I will cover how to produce attractive and informative visualizations of data, and possibly some very basic statistics.
 
-### 6. Good practices
+### 6. Best practices
 
 In this final lecture, I will speak on the theme of good practices in scientific programming. This lecture is open to anyone, even if you didn’t follow the main course. Topics will include:
 
