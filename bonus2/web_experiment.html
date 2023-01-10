@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count the dots!</title>
+    <script src='https://unpkg.com/jspsych@7.1.2'></script>
+    <script src='https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.0'></script>
+    <script src='https://unpkg.com/@jspsych/plugin-canvas-keyboard-response@1.1.0'></script>
+    <link href='https://unpkg.com/jspsych@7.1.2/css/jspsych.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+</body>
+<script>
+
+////////////////////////////
+// Parameters
+////////////////////////////
+
+var DOT_RADIUS = 10;
+var MIN_DOTS = 1;
+var MAX_DOTS = 9;
+var N_REPS = 1;
+var PRESENTATION_TIME = 500;
+var CANVAS_WIDTH = 500;
+var CANVAS_HEIGHT = 500;
+
+////////////////////////////
+// Preparation
+////////////////////////////
+
+var jsPsych = initJsPsych({
+    on_finish: function() {
+        jsPsych.data.displayData();
+    }
+});
+
+var min_x_pos = DOT_RADIUS;
+var max_x_pos = CANVAS_WIDTH - DOT_RADIUS;
+var min_y_pos = DOT_RADIUS;
+var max_y_pos = CANVAS_HEIGHT - DOT_RADIUS;
+
+var trials = jsPsych.randomization.repeat([1, 2, 3, 4, 5, 6, 7, 8, 9], N_REPS);
+
+var timeline = [];
+
+////////////////////////////
+// Main experiment script
+////////////////////////////
+
+var instruction_screen = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+        <p>You will see some dots for a short amount of time.<br />
+        Your task is to estimate how many dots you saw.<br />
+        Try to be as accurate as possible.</p>
+
+        <p>Press any key to begin</p>
+    `,
+};
+timeline.push(instruction_screen);
+
+for (let n_dots of trials) {
+
+    var trial = {
+        type: jsPsychCanvasKeyboardResponse,
+        canvas_size: [CANVAS_WIDTH, CANVAS_HEIGHT],
+        stimulus: function(canvas) {
+            var context = canvas.getContext('2d');
+            for (let i=0; i<n_dots; i++) {
+                var rand_x_pos = jsPsych.randomization.randomInt(min_x_pos, max_x_pos);
+                var rand_y_pos = jsPsych.randomization.randomInt(min_y_pos, max_y_pos);
+                context.beginPath();
+                context.arc(rand_x_pos, rand_y_pos, DOT_RADIUS, 0, 2 * Math.PI, false);
+                context.fillStyle = 'black';
+                context.fill();
+            }
+        },
+        choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        prompt: `<p>How many dots? [${MIN_DOTS} - ${MAX_DOTS}]`,
+        data: {n_dots: n_dots},
+        stimulus_duration: PRESENTATION_TIME,
+    };
+    timeline.push(trial);
+
+}
+
+var end_screen = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+        <p>Experiment complete.</p>
+        <p>Press any key to exit.</p>
+    `,
+};
+timeline.push(end_screen);
+
+jsPsych.run(timeline);
+
+</script>
+</html>
